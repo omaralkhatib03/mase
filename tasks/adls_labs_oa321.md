@@ -24,3 +24,17 @@ The graphs are found in `tutorials/tutorial2/`. The differences between using al
 Attention Sub-graph        |  Labels Sub-graph
 :-------------------------:|:-------------------------:
 ![alt text](./tutorial2/imgs/attention_data_flow.png)  |  ![alt text](./tutorial2/imgs/labels_data_flow.png)
+
+## Lab 1
+
+### Task 1a
+
+Bit Width vs Maximum Accuracy on IMBD dataset.
+
+![alt text](./tutorial3/tsk1a.png)
+
+### Task 1b
+
+BitWidth vs Accuracy (PQT) | Bitwidth vs Accuracy (QAT)
+:-------------------------:|:-------------------------:
+![alt text](./tutorial3/fixed_point_pqt.png) | ![alt text](./tutorial3/fixed_point_qat.png)

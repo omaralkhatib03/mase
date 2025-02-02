@@ -1,0 +1,18 @@
+/rds/general/user/oa321/home/miniforge3/envs/mase_env/bin/python
+Base Model Acc: 0.83312
+{'eval_loss': 0.38564738631248474, 'eval_accuracy': 0.83312, 'eval_runtime': 41.4315, 'eval_samples_per_second': 603.406, 'eval_steps_per_second': 37.725}
+iter: 7
+{'loss': 0.6931, 'grad_norm': 0.17424741387367249, 'learning_rate': 3.400511836212412e-05, 'epoch': 0.32}
+{'loss': 0.6934, 'grad_norm': 0.1420016586780548, 'learning_rate': 1.801023672424824e-05, 'epoch': 0.64}
+{'loss': 0.693, 'grad_norm': 0.1369301974773407, 'learning_rate': 2.015355086372361e-06, 'epoch': 0.96}
+{'train_runtime': 312.303, 'train_samples_per_second': 80.05, 'train_steps_per_second': 5.005, 'train_loss': 0.693181660872427, 'epoch': 1.0}
+iter: 8
+{'loss': 0.6931, 'grad_norm': 0.007346926257014275, 'learning_rate': 3.400511836212412e-05, 'epoch': 0.32}
+{'loss': 0.6931, 'grad_norm': 0.02009987086057663, 'learning_rate': 1.801023672424824e-05, 'epoch': 0.64}
+{'loss': 0.6931, 'grad_norm': 0.003031789558008313, 'learning_rate': 2.015355086372361e-06, 'epoch': 0.96}
+{'train_runtime': 531.7371, 'train_samples_per_second': 47.016, 'train_steps_per_second': 2.939, 'train_loss': 0.6931400018400362, 'epoch': 1.0}
+iter: 9
+{'loss': 0.6931, 'grad_norm': 0.0, 'learning_rate': 3.400511836212412e-05, 'epoch': 0.32}
+{'loss': 0.6931, 'grad_norm': 0.0, 'learning_rate': 1.801023672424824e-05, 'epoch': 0.64}
+{'loss': 0.6931, 'grad_norm': 0.0, 'learning_rate': 2.015355086372361e-06, 'epoch': 0.96}
+{'train_runtime': 758.1744, 'train_samples_per_second': 32.974, 'train_steps_per_second': 2.062, 'train_loss': 0.6931459813718985, 'epoch': 1.0}

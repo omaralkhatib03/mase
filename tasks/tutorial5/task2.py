@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[2]:
 
 
 from chop.tools import get_tokenized_dataset
@@ -17,7 +17,7 @@ dataset, tokenizer = get_tokenized_dataset(
 )
 
 
-# In[2]:
+# In[3]:
 
 
 from transformers import AutoConfig, AutoModelForSequenceClassification
@@ -42,7 +42,7 @@ baseline = eval_results["eval_accuracy"]
 print(baseline)
 
 
-# In[3]:
+# In[4]:
 
 
 import torch.nn as nn
@@ -57,7 +57,7 @@ search_space = {
 }
 
 
-# In[105]:
+# In[5]:
 
 
 from transformers import AutoConfig, AutoModelForSequenceClassification
@@ -100,7 +100,7 @@ def construct_model(trial):
     return trial_model
 
 
-# In[5]:
+# In[6]:
 
 
 from chop.tools import get_trainer
@@ -125,7 +125,7 @@ def objective(trial):
     return eval_results["eval_accuracy"]
 
 
-# In[6]:
+# In[7]:
 
 
 import optuna
@@ -160,15 +160,15 @@ def getGridSearchSpace():
     return grid_search_space
 
 
-# In[7]:
+# In[8]:
 
 
 # sampler = GridSampler(search_space=getGridSearchSpace()) # The sampler to use below
-# sampler = RandomSampler()
-sampler = TPESampler()
+sampler = RandomSampler()
+# sampler = TPESampler()
 
 
-# In[ ]:
+# In[9]:
 
 
 study = optuna.create_study(
@@ -184,7 +184,7 @@ study.optimize(
 )
 
 
-# In[35]:
+# In[11]:
 
 
 from pathlib import Path
@@ -192,11 +192,11 @@ import dill
 
 model = study.best_trial.user_attrs["model"].cpu()
 
-with open(f"{Path.home()}/mase/tasks/tutorial5/t5_best_model.pkl", "wb") as f:
-    dill.dump(model, f)
+# with open(f"{Path.home()}/mase/tasks/tutorial5/t5_best_model.pkl", "wb") as f:
+    # dill.dump(model, f)
 
 
-# In[9]:
+# In[17]:
 
 
 from chop.pipelines import CompressionPipeline
@@ -250,7 +250,7 @@ mg, _ = pipe(
 )
 
 
-# In[10]:
+# In[12]:
 
 
 import pandas as pd
@@ -328,12 +328,13 @@ def samplerTrial(sampler_name:str, trials:int, sampler, f=objective) -> None:
 # plt.show()
 
 
-# In[114]:
+# In[18]:
 
 
 import chop.passes as passes
+from chop import MaseGraph
 
-trials = 2
+trials = 100
 
 def objTrain(model, pre_evaluation=True):
 
@@ -399,7 +400,7 @@ def pipeObjective(trial):
     return eval_acc
 
 
-# In[113]:
+# In[19]:
 
 
 study = optuna.create_study(
@@ -415,7 +416,7 @@ study.optimize(
 )
 
 df = pd.DataFrame(data)
-df.to_csv(f"{Path.home()}/mase/tasks/tutorial5/tps_cp.csv", index=False)
+df.to_csv(f"/vol/bitbucket/oa321/mase/tasks/tutorial5/rand_cp.csv", index=False)
 
 
 # In[21]:

@@ -27,22 +27,21 @@ Attention Sub-graph        |  Labels Sub-graph
 
 ## Lab 1
 
-### Task 1.1a
+<!-- ### Task 1.1a -->
 
-Bit Width vs Maximum Accuracy on IMBD dataset.
+<!-- Bit Width vs Maximum Accuracy on IMBD dataset. -->
 
-![alt text](./tutorial3/tsk1a.png)
+<!-- ![alt text](./tutorial3/tsk1a.png) -->
 
-### Task 1.1b
+### Task 1
 
-BitWidth vs Accuracy (PQT)
+BitWidth vs Accuracy
 
 ![alt text](./tutorial3/fixed_point_explore.png)
 
 ### Task 1.2 (a & b)
 
 The task specifies to choose your 'best model' however did not specify a criterion. The best model was chosen by minimising the derivative of the accuracy w.r.t to the width. The derivative was also weighted by the bitwidth to prioritise smaller width (for less memory footprint) and derivates with value 0 were excluded. Widths which attained a derivate of 0 occured either at very small widths or very large widths. This happened when no improvment happened between to consecutive tests. The criterion is not ideal and is prone to error, a more robust criterion could be implemented. This is done in ```mase/tasks/tutorial3/task1a.ipynb```.
-
 
 The Plot below shows the performance of the model when applying pruning. The accuracy is measured after pruning but before retraining, and then measured again after training. The pruning strategies tested were Random Pruning and L1-Norm pruning.
 
@@ -65,3 +64,6 @@ The plot below shows the results for each sampler.
 
 ![alt text](./tutorial5/samplers.png)
 
+## Task 2b
+
+The goal is to analyse the effect of compressing the network on the accuracy of the model. The task states to select the best model out of the those in task 1. The model with the highg accuracy was obtained by

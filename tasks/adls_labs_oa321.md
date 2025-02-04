@@ -66,4 +66,11 @@ The plot below shows the results for each sampler.
 
 ## Task 2b
 
-The goal is to analyse the effect of compressing the network on the accuracy of the model. The task states to select the best model out of the those in task 1. The model with the highg accuracy was obtained by
+The goal is to analyse the effect of compressing the network on the accuracy of the model. The task states to select the best model out of the those in task 1. The model with the highg accuracy was obtained by the random sampler. However I tested both the random sampler and the TPESampler for this run. It is possible that the random sampler got lucky with a parameterisation. This seen below, hence the TPESampler out performs the random sampler when taking into account the compression pipeline.
+
+
+Random Sampler        | TPESampler
+:-------------------------:|:-------------------------:
+![alt text](./tutorial5/cp_rand_cp.png)  |  ![alt text](./tutorial5/cp_tps_cp.png)
+
+

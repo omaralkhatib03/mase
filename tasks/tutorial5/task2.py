@@ -164,8 +164,8 @@ def getGridSearchSpace():
 
 
 # sampler = GridSampler(search_space=getGridSearchSpace()) # The sampler to use below
-sampler = RandomSampler()
-# sampler = TPESampler()
+# sampler = RandomSampler()
+sampler = TPESampler()
 
 
 # In[9]:
@@ -416,7 +416,7 @@ study.optimize(
 )
 
 df = pd.DataFrame(data)
-df.to_csv(f"/vol/bitbucket/oa321/mase/tasks/tutorial5/rand_cp.csv", index=False)
+df.to_csv(f"/vol/bitbucket/oa321/mase/tasks/tutorial5/tps_cp.csv", index=False)
 
 
 # In[21]:

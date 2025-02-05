@@ -74,3 +74,12 @@ Random Sampler        | TPESampler
 ![alt text](./tutorial5/cp_rand_cp.png)  |  ![alt text](./tutorial5/cp_tps_cp.png)
 
 
+
+## Lab 3
+
+Task 1
+
+Random Sampler        | TPESampler
+:-------------------------:|:-------------------------:
+![alt text](./tutorial6/cp_sampler_run_random.png)  |  ![alt text](./tutorial6/cp_tps.png)
+

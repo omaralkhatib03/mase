@@ -87,14 +87,14 @@ search_space = {
     "frac_width": [i for i in range(3, 6)],
     "linear_layer_choices": [
         torch.nn.Linear,
-        LinearInteger,
-        LinearMinifloatIEEE,
-        LinearMinifloatDenorm,
-        LinearLog,
-        LinearBinaryScaling,
-        LinearBinary,
-        LinearBlockFP,
-        LinearBlockLog
+        LinearInteger, # 1
+        LinearMinifloatIEEE, # 2
+        LinearMinifloatDenorm, #3
+        LinearLog, #4
+        LinearBinaryScaling, #5
+        LinearBinary, #6
+        LinearBlockFP, #7
+        LinearBlockLog #8
     ],
 }
 

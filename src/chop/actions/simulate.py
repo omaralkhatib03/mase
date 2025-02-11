@@ -36,7 +36,7 @@ def simulate(
     skip_test: bool = False,
     trace_depth: int = 3,
     gui: bool = False,
-    waves: bool = False,
+    waves: bool = True,
     simulator: str = "verilator",
 ):
     SIM = getenv("SIM", simulator)
@@ -60,6 +60,7 @@ def simulate(
                 "-Wno-fatal",
                 "-Wno-lint",
                 "-Wno-style",
+                "--trace",
                 "--trace-fst",
                 "--trace-structs",
                 "--trace-depth",
@@ -82,6 +83,7 @@ def simulate(
             includes=includes,
             hdl_toplevel="top",
             build_args=build_args,
+            waves=waves,
             parameters=[],  # use default parameters,
         )
 

@@ -24,7 +24,7 @@ class Monitor:
                 else self.name
             )
 
-        self._thread = cocotb.scheduler.create_task(self._recv_thread())
+        self._thread = cocotb.scheduler.add(self._recv_thread())
 
     def kill(self):
         if self._thread:

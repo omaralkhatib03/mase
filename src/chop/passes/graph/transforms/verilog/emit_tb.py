@@ -133,6 +133,7 @@ def _emit_cocotb_tb(graph):
             for arg, arg_batches in in_tensors.items():
                 # Quantize input tensor according to precision
                 if len(self.input_precision) > 1:
+                    print(in_tensors)
                     from mase_cocotb.utils import fixed_preprocess_tensor
 
                     in_data_blocks = fixed_preprocess_tensor(

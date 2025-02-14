@@ -331,7 +331,7 @@ The LFSR was found in `mase/verilog-ethernet`. Typically it would be used to dec
 
 Lower and Upper in this case represent the range of random numbers generated.
 
-Lower = 4, Upper = 1 --> \( \frac{1}{16} \leq a \leq \frac{1}{2} \)
+Lower = 4, Upper = 1 --> 1/16 <= a <= 1/ 2
 
 The Lower parameter must always be larger than the upper parameter.
 

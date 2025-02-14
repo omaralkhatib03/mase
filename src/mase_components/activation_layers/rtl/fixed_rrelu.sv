@@ -29,7 +29,7 @@ module fixed_rrelu #(
     /* verilator lint_on UNUSEDPARAM */
 ) (
     /* verilator lint_off UNUSEDSIGNAL */
-    input rst_n,
+    input rst,
     input clk,
 
     input logic [DATA_IN_0_PRECISION_0-1:0] data_in_0[DATA_IN_0_PARALLELISM_DIM_0*DATA_IN_0_PARALLELISM_DIM_1-1:0],
@@ -53,23 +53,23 @@ module fixed_rrelu #(
 
   for (
       genvar i = 0; i < DATA_IN_0_PARALLELISM_DIM_0 * DATA_IN_0_PARALLELISM_DIM_1; i++
-  ) begin : RRelu 
+  ) begin : RRelu
 
     logic [LFSR_WIDTH-1:0] lfsr_state = '1; // Start at '1
     logic [LFSR_WIDTH-1:0] next_state;
 
     /* verilator lint_off UNUSEDSIGNAL */
-    logic [2*DATA_IN_0_PRECISION_0-1:0] dout; 
+    logic [2*DATA_IN_0_PRECISION_0-1:0] dout;
     /* verilator lint_on UNUSEDSIGNAL */
 
     logic [DATA_IN_0_PRECISION_0-1:0] multiplier = next_state & LFSR_MASK;
     logic [DATA_OUT_0_PRECISION_0-1:0] adjusted_out = DATA_OUT_0_PRECISION_0'($signed(dout) >>> DATA_IN_0_PRECISION_1);
 
-    always @(posedge clk) 
+    always @(posedge clk)
     begin
         lfsr_state <= next_state;
     end
-    
+
     // You can find this module in mase/verilog-ethernet, or at https://github.com/alexforencich/verilog-lfsr/blob/master/rtl/lfsr.v
     lfsr #(
         .LFSR_WIDTH         (LFSR_WIDTH),
@@ -77,32 +77,32 @@ module fixed_rrelu #(
         .STYLE              ("AUTO")
     ) lfsr_I (
 
-        // verilator lint_off PINCONNECTEMPTY 
+        // verilator lint_off PINCONNECTEMPTY
         .data_in(),
         .data_out(),
-        // verilator lint_on PINCONNECTEMPTY 
-        
+        // verilator lint_on PINCONNECTEMPTY
+
         .state_in(lfsr_state),
 
         .state_out(next_state)
     );
 
     assign dout = $signed(multiplier) * $signed(data_in_0[i]);
-    
+
     always_comb
-    begin : RReluOutput 
+    begin : RReluOutput
       if ($signed(data_in_0[i]) < 0)
       begin
-        data_out_0[i] = adjusted_out; 
+        data_out_0[i] = adjusted_out;
       end
-      else 
+      else
       begin
-        data_out_0[i] = data_in_0[i]; 
+        data_out_0[i] = data_in_0[i];
       end
     end
   end
-  
-  assign data_out_0_valid = data_in_0_valid;  
+
+  assign data_out_0_valid = data_in_0_valid;
   assign data_in_0_ready  = data_out_0_ready;
 
 endmodule
